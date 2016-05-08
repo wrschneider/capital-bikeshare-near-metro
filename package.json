@@ -1,0 +1,37 @@
+{
+  "name": "capital-bikeshare-near-metro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "capital-bike-share-js": "^1.2.0",
+    "nodemon": "^1.9.1",
+    "request": "^2.65.0"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.7.6",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "css-loader": "^0.23.1",
+    "express": "^4.13.4",
+    "file-loader": "^0.8.5",
+    "jquery": "^2.2.3",
+    "json-loader": "^0.5.4",
+    "nodemon": "^1.9.1",
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.14",
+    "webpack-dev-middleware": "^1.6.1"
+  }
+}
