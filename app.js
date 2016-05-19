@@ -1,15 +1,21 @@
+'use strict';
+
 var express = require('express');  
 var api = require('capital-bike-share-js');
-var webpackDevMiddleware = require("webpack-dev-middleware");
-var webpack = require('webpack')
-var webpackConfig = require('./webpack.config')
+var env = process.env.NODE_ENV || 'development';
 
 var app = express();
-var compiler = webpack(webpackConfig);
 
-app.use(webpackDevMiddleware(compiler, {
+if (env == 'development') {
+	let webpackDevMiddleware = require("webpack-dev-middleware");
+	let webpack = require('webpack')
+	let webpackConfig = require('./webpack.config')
+	var compiler = webpack(webpackConfig);
 
-}));
+	app.use(webpackDevMiddleware(compiler, {
+		publicPath: '/build/'
+	}));
+}
 
 app.use(express.static(__dirname + '/public'));
 
