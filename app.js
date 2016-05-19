@@ -3,6 +3,7 @@
 var express = require('express');  
 var api = require('capital-bike-share-js');
 var env = process.env.NODE_ENV || 'development';
+var compression = require('compression')
 
 var app = express();
 
@@ -17,6 +18,7 @@ if (env == 'development') {
 	}));
 }
 
+app.use(compression())
 app.use(express.static(__dirname + '/public'));
 
 app.get('/api', function(req, res) {
