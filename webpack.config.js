@@ -1,7 +1,9 @@
-module.exports = {
+var webpack = require('webpack')
+
+var config = {
     entry: "./public/index.js",
     output: {
-        path: __dirname + '/build',
+        path: __dirname + '/public/build',
         publicPath: '/build/',
         filename: "bundle.js",
     },
@@ -22,6 +24,20 @@ module.exports = {
             { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" }
         ]
     },
+    plugins: []
 };
 
- 
+if (process.env.NODE_ENV == 'production') {
+    config.plugins.push(
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        },
+        output: {
+          comments: false
+        },
+        sourceMap: false
+      })
+    );
+} 
+module.exports = config;

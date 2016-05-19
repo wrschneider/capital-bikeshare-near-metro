@@ -19,7 +19,7 @@ export default class App extends React.Component {
 	render() {
 		return (
 		<div>
-			<h2>Capital Bikeshare availability near Metrorail stations</h2>
+			<h2>Capital Bikeshare near Metro</h2>
 
 			<form action="#">
 				<select name="metroStation" id="metroStation" onChange={this.selectStation.bind(this)}>
@@ -39,7 +39,7 @@ export default class App extends React.Component {
 					<thead><tr><th>Station</th><th>Bikes</th><th>Docks</th></tr></thead>
 					<tbody>
 					{this.state.nearbyBikeStations.map(station => 
-						<tr><td>{station.name}</td><td>{station.nbBikes}</td><td>{station.nbEmptyDocks}</td></tr>				
+						<tr key={station.id}><td>{station.name}</td><td>{station.nbBikes}</td><td>{station.nbEmptyDocks}</td></tr>				
 					)}
 					</tbody>
 				</table>
