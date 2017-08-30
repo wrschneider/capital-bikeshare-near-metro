@@ -21,6 +21,8 @@ if (env == 'development') {
 app.use(compression())
 app.use(express.static(__dirname + '/public'));
 
+app.set('view engine', 'jade')
+
 app.get('/api', function(req, res) {
 	if (isNaN(req.query.lat) || isNaN(req.query.lon)) {
 		res.status(500).send({status: 'error'});
@@ -34,6 +36,14 @@ app.get('/api', function(req, res) {
 				res.send({status: 'OK', data: data});
 			}
 		});
+});
+
+app.get('/u-street-low-bandwidth', function(req, res) {
+	api.getByClosest({latitude: 38.916489, longitude: -77.028938}, 10,
+		(err, data) => {
+			res.render('stations', {stations: data})
+		}
+	);
 });
 
 app.listen(process.env.PORT || 3000);
