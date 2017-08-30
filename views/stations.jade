@@ -1,0 +1,19 @@
+html
+    head
+        title Nearby bikes
+    body
+        table
+            thead
+                tr
+                    th ID
+                    th Name
+                    th Bikes
+                    th Docks
+            tbody
+                for station in stations
+                    tr
+                        td= station.id
+                        td= station.name
+                        td= station.nbBikes
+                        td= station.nbEmptyDocks
+
